@@ -1,0 +1,13 @@
+# for java maven project
+
+deploy_package:
+  stage: deploy
+  script:
+    - /application/gitlab_ci/police/java_package_police.sh
+  artifacts:
+    paths:
+      - target/package/*
+  only:
+    - /^V-.*$/
+  tags:
+    - deploy
